@@ -12,8 +12,7 @@
         for (let i = 0; i < hordeClasses.length; i++) {
             timePlayed.push(
                 hordeData.ModeStats[i].Stats[0].Value
-                    .replace(/d|h|m/gi, '').split(' ').map(Number)
-            );
+                    .replace(/d|h|m/gi, '').split(' ').map(Number));
         }
 
         for (let i = 0; i < unitTime.length; i++) {
