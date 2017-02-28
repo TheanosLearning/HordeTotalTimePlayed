@@ -51,5 +51,26 @@
         }
     }
 
+    function lifetimeCredits(gow4Data) {
+        let lifetimeCreditsEarned = 10 * gow4Data.achievements.Achievements.filter(a => a.Id === "90").pop().Progress;
+        let creditsIcon =
+            "<img alt=\"lifetime-credits\" " +
+            "height=\"20px\" " +
+            "width=\"20px\" " +
+            "src=\"https://gearsofwar.com/Areas/GearPacks/Content/navbar/icon_credits.png\">";
+        let gow4TitleDiv = Array.from(document.querySelectorAll('.module-title'))
+            .filter(div => div.innerText
+                .includes("GEARS OF WAR 4"))[0];
+
+        if(document.getElementById('lifetime-credits') == null) {
+            let creditsNode = document.createElement('h4');
+            creditsNode.id = "lifetime-credits";
+            creditsNode.align = "center";
+            creditsNode.innerHTML = "LIFETIME CREDITS: " + creditsIcon + " " + lifetimeCreditsEarned;
+            gow4TitleDiv.parentNode.insertBefore(creditsNode, gow4TitleDiv.nextSibling);
+        }
+    }
+
     hordeTimePlayed(gow4Data);
+    lifetimeCredits(gow4Data);
 })();
